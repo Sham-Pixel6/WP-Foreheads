@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="../favicon.png" type="image/png">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Aboreto&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Lexend:wght@100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+        <title>Forehead</title>
+
+        <link rel="stylesheet" href="../assets/styles/styles.css">
+        <link rel="stylesheet" href="../assets/styles/blog-detail.css">
+    </head>
+
+    <body>
+        <!-- Navbar -->
+        <div class="header-nav">
+            <header class="container">
+                <nav class="navbar d-flex" id="navbar">
+                    <a class="navbar-brand" href="./index.html">
+                        <img src="assets/images/Foreheads_Logo.png" alt="Logo">
+                    </a>
+                    <div class="collapse navbar-collapse">
+                        <ul class="navbar-nav d-flex">
+                            <li class="nav-item"><a class="nav-link" href="/index.html">Home</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/app/services.html">Services</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/app/about-us.html">About</a></li>
+                            <li class="nav-item"><a class="btn bg-gray hover-blue" href="/app/blogs.html">Updates</a>
+                            </li>
+                            <li class="nav-item"><a class="btn outline hover-blue" href="#lets-talk">Let’s
+                                    Talk</a></li>
+                        </ul>
+                    </div>
+                    <a href="javascript:void(0);" class="icon btn" onclick="toggleNavbar()">
+                        <img src="./assets/images/nav-icon.svg" alt="nav-icon">
+                    </a>
+                </nav>
+            </header>
+        </div>
+
+        <section class="container ptb-50">
+            <div class="blog-header d-flex">
+                <header class="font-48">Diwali Celebration at Foreheads</header>
+            </div>
+            <p class="detail">
+                02 Nov 2024
+            </p>
+            <div class="blog-details container">
+                <img src="../assets/images/blog-detail.jpeg" alt="">
+                <h4>Festive Vibes in Pune</h4>
+                <p>
+                    Foreheads Fleet Services celebrated Diwali with joy and
+                    togetherness. The
+                    office was lit up with colourful decorations, glowing diyas, and vibrant rangolis, creating a
+                    festive atmosphere.
+                </p>
+                <h4>Team Bonding and Fun</h4>
+                <p>
+                    The team enjoyed fun activities, shared sweets, and bonded
+                    over games, making
+                    the day special. The celebration brought everyone together, spreading cheer and positivity.</p>
+            </div>
+        </section>
+        <!-- More Updates -->
+        <section class="container pb-50">
+            <div class="blog-header d-flex">
+                <h2>News & Updates</h2>
+                <a class="more-arrow d-flex" href="/app/blogs.html">
+                    See All
+                    <span class="img arrow-icon" aria-hidden="true"></span>
+                </a>
+            </div>
+            <div class="blog-cards">
+                <div class="card outline justify-space-between text-small">
+                    <img src="../assets/images/blog/blog-card-1.png" alt="blog card" class="rounded">
+                    <h4 class="overflow-txt w-100 m-0">Diwali Celebration at Foreheads</h4>
+                    <div class="d-flex justify-space-between blog-info w-100">
+                        <p>02 Nov 2024</p>
+                        <a href="../app/blog-detail.html">Read More</a>
+                    </div>
+                </div>
+                <div class="card outline justify-space-between text-small">
+                    <img src="../assets/images/blog/blog-card-2.png" alt="blog card" class="rounded">
+                    <h4 class="overflow-txt w-100 m-0">Foreheads' new contract with Mastercard comes as a significant milestone,
+                        marking the beginning of a strategic partnership aimed at revolutionizing digital payment solutions.</h4>
+                    <div class="d-flex justify-space-between blog-info w-100">
+                        <p>13 Dec 2024</p>
+                        <a href="../app/blog-detail.html">Read More</a>
+                    </div>
+                </div>
+                <div class="card outline justify-space-between text-small">
+                    <img src="../assets/images/blog/blog-card-3.png" alt="blog card" class="rounded">
+                    <h4 class="overflow-txt w-100 m-0">Custom Fleet Service</h4>
+                    <div class="d-flex justify-space-between blog-info w-100">
+                        <p>13 Dec 2024</p>
+                        <a href="../app/blog-detail.html">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Lets Talk-->
+        <section class="container pb-50" id="lets-talk">
+            <h2 class="lets-talk">Let's Talk</h2>
+            <div class="contact-form d-flex">
+                <img src="../assets/images/man.svg" alt="star-image-150px">
+                <form>
+                    <div class="grid-hero">
+                        <div class="name-col">
+                            <label for="fname">Full name:</label><br>
+                            <input class="w-100" type="text" id="fname" name="fname"><br>
+                        </div>
+                        <div class="name-col">
+                            <label for="lname">Phone Number:</label><br>
+                            <input class="w-100" type="text" id="lname" name="lname"><br>
+                        </div>
+                    </div>
+                    <div class="email-row">
+                        <label for="fname">Email ID:</label><br>
+                        <input class="w-100" type="text" id="fname" name="fname"><br>
+                    </div>
+                    <div class="message-row">
+                        <label for="lname">Message:</label><br>
+                        <textarea class="w-100" name="Message" id="message"></textarea>
+                    </div>
+                    <div>
+                        <button class="btn-lg submit-btn">
+                            Submit Message
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </section>
+        </section>
+        <!-- footer -->
+        <footer class="bg-gray">
+            <div class="footer-container container">
+                <div>
+                    <!-- navbar-->
+                    <nav class="d-flex foot-nav">
+                        <a class="navbar-brand" href="./index.html">
+                            <img src="/assets/images/Foreheads_Logo.png" alt="Logo">
+                        </a>
+                        <ul class="d-flex">
+                            <li><a href="/index.html">Home</a></li>
+                            <li><a href="/app/services.html">Services</a></li>
+                            <li><a href="/app/about-us.html">About</a></li>
+                            <li><a href="/app/blogs.html">Updates</a></li>
+                        </ul>
+                    </nav>
+                    <!--Addresses-->
+                    <div class="address">
+                        <div>
+                            <div>
+                                <h4>Corporate Office</h4>
+                                <p class="detail-add">Foreheads Car Rental Service Pvt Ltd, Shop No 1 & 2, Shiv Arya Nisarg
+                                    Pooja,Wakad Road, Mankar Chowk Pune - 411057</p>
+                            </div>
+                            <a href="tel:+919011036102" class="contact-detail">
+                                <span class="icon icon-24 dialer-icon"></span>
+                                919011036102
+                            </a>
+                            <a href="mailto:info@foreheads.in" class="contact-detail">
+                                <span class="icon icon-24 mail-icon"></span>
+                                info
+                                <span>@</span>
+                                foreheads.in
+                            </a>
+                        </div>
+                        <div>
+                            <div>
+                                <h4>Registered Office</h4>
+                                <p class="detail-add">Aksha Apartment, No. 4, D.P Road, Jagtap Dairy, Pimple Nilakh, Pune-411027
+                                </p>
+                            </div>
+                            <a href="tel:02065320088" class="contact-detail">
+                                <span class="icon icon-24 dialer-icon"></span>
+                                020-65320088
+                            </a>
+                            <a href="mailto:winfo@foreheads.in" class="contact-detail">
+                                <span class="icon icon-24 mail-icon"></span>
+                                info<span>@</span>
+                                foreheads.in
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="right-footer">
+                    <div class="maps">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3781.6740890773053!2d73.7777734!3d18.588726400000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2b969f5e1b709%3A0x560b7c95d930cdee!2sForehead%20Car%20Rental%20Services%20Pvt%20Ltd.!5e0!3m2!1sen!2sin!4v1735646811568!5m2!1sen!2sin" width="100%" height="240" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                    <P> @2025 Foreheads All Rights Reserved </P>
+                </div>
+            </div>
+        </footer>
+        <script src="/script/navbar.js"></script>
+    </body>
+
+</html>

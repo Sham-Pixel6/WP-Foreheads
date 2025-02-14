@@ -1,0 +1,173 @@
+  .hero-p-head {
+      line-height: normal;
+  }
+
+  .text-content {
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+  }
+
+  .text-content.expanded {
+      -webkit-line-clamp: unset;
+  }
+
+  .read-more-btn {
+      display: inline-block;
+      color: #0092f3;
+      cursor: pointer;
+  }
+
+  .about-detail {
+      max-width: 75ch;
+  }
+
+  .slider-section {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+  }
+
+  .slider-container {
+      position: relative;
+      overflow: hidden;
+  }
+
+  .slider {
+      overflow: visible;
+      display: flex;
+      position: relative;
+      background-color: white;
+
+  }
+
+  .slider img {
+      margin: 0 !important;
+  }
+
+  .slide {
+      width: 350px;
+      margin: 0 10px;
+      position: relative;
+      transform: scale(0.8);
+      opacity: 0.4;
+      transition: all 0.4s ease-in-out;
+      border-radius: 10px;
+      overflow: hidden;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center !important;
+  }
+
+  .slide-content-wrapper {
+      width: 100%;
+      padding: 12px 0px;
+  }
+
+  .slide.active {
+      transform: scale(1);
+      opacity: 1;
+  }
+
+  .nav-arrow {
+      padding: 0 10px;
+  }
+
+  .arrow {
+      top: 40%;
+      position: absolute;
+      border-radius: 30%;
+  }
+
+  .nav-arrow-right {
+      right: 10px;
+  }
+
+  .nav-arrow-left {
+      left: 10px;
+  }
+
+  .card a {
+      text-align: center;
+      position: relative;
+  }
+
+  .bg-gray {
+      color: var(--color-medium-grey) !important;
+  }
+
+  .more {
+      display: none;
+  }
+
+  .objective-icon {
+      background-image: url('../images/objecvtive.svg');
+  }
+
+  .values-icon {
+      background-image: url('../images/values.svg');
+  }
+
+  .strength-icon {
+      background-image: url('../images/strength.svg');
+  }
+
+  .training-icon {
+      background-image: url('../images/training.svg');
+  }
+
+  .cert-img img {
+      width: 150px;
+  }
+
+  .cert-detail {
+      text-align: center;
+      font-size: var(--font-size-xs);
+  }
+
+  cert-num {
+      font-weight: 400;
+      color: #151515;
+  }
+
+  .cert-detail p {
+      font-size: var(--font-default);
+      font-weight: 300;
+  }
+
+  .card a::before {
+      content: "";
+      display: block;
+      width: 100%;
+      border-bottom: 1px solid var(--color-border);
+      position: absolute;
+      margin-top: -8px;
+  }
+
+  .view-certificate {
+      display: inline-block;
+      font-size: var(--font-size-xs);
+  }
+
+
+
+  @media screen and (max-width: 768px) {
+      .slide {
+          width: 300px;
+          height: 300px;
+      }
+
+      .cert-img img {
+          width: 100px;
+      }
+  }
+
+  @media screen and (max-width: 425px) {
+      .slide {
+          width: 200px;
+          height: 200px;
+      }
+  }

@@ -1,0 +1,340 @@
+<!-- Accordian -->
+
+<!-- <div class="accordian">
+                <button class="accordion-button d-flex">
+                    <div class="accbtn-head d-flex">
+                        <img src="assets/images/accordian/acc-1.png" alt="">
+                        Objective
+                    </div>
+                    <img src="assets/images/arrow-up.svg" alt="">
+                </button>
+                <div class="accordion-content">
+                    <p>To provide professional employee transportation solutions that address travel challenges, reduce
+                        costs, and enhance efficiency. Our goal is to lead the transport industry by delighting clients
+                        with
+                        innovative, value-added services.</p>
+                </div>
+
+                <button class="accordion-button  d-flex">
+                    <div class="accbtn-head d-flex">
+                        <img src="assets/images/accordian/acc-2.png" alt="">
+                        Values
+                    </div>
+                    <img src="assets/images/arrow-up.svg" alt="">
+                </button>
+                <div class="accordion-content">
+                    <p>To provide professional employee transportation solutions that address travel challenges, reduce
+                        costs, and enhance efficiency. Our goal is to lead the transport industry by delighting clients
+                        with
+                        innovative, value-added services.</p>
+                </div>
+
+                <button class="accordion-button  d-flex">
+                    <div class="accbtn-head d-flex">
+                        <img src="assets/images/accordian/acc-3.png" alt="">
+                        Maintenance
+                    </div>
+                    <img src="assets/images/arrow-up.svg" alt="">
+                </button>
+                <div class="accordion-content">
+                    <p>To provide professional employee transportation solutions that address travel challenges, reduce
+                        costs, and enhance efficiency. Our goal is to lead the transport industry by delighting clients
+                        with
+                        innovative, value-added services.</p>
+                </div>
+
+                <button class="accordion-button  d-flex">
+                    <div class="accbtn-head d-flex">
+                        <img src="assets/images/accordian/acc-4.png" alt="">
+                        Induction Training
+                    </div>
+                    <img src="assets/images/arrow-up.svg" alt="">
+                </button>
+                <div class="accordion-content">
+                    <p>To provide professional employee transportation solutions that address travel challenges, reduce
+                        costs, and enhance efficiency. Our goal is to lead the transport industry by delighting clients
+                        with
+                        innovative, value-added services.</p>
+                </div>
+
+                <button class="accordion-button  d-flex">
+                    <div class="accbtn-head d-flex">
+                        <img src="assets/images/accordian/acc-5.png" alt="">
+                        Strength
+                    </div>
+                    <img src="assets/images/arrow-up.svg" alt="">
+                </button>
+                <div class="accordion-content">
+                    <p>To provide professional employee transportation solutions that address travel challenges, reduce
+                        costs, and enhance efficiency. Our goal is to lead the transport industry by delighting clients
+                        with
+                        innovative, value-added services.</p>
+                </div>
+            </div> -->
+
+
+/*-- Accordian ---*/
+
+.accordian {
+margin: 40px 0px;
+}
+
+.accordion-button {
+background: rgba(241, 244, 249, 1);
+cursor: pointer;
+padding: 10px 15px;
+border: none;
+text-align: left;
+outline: none;
+transition: background-color 0.3s ease;
+font-size: var(--font-size-md-lg);;
+width: 100%;
+height: 125px;
+justify-content: space-between;
+border-bottom: 1px solid #d5d5d5;
+}
+
+.accordion-button.open {
+background-color: #fff;
+border-bottom: none;
+color: #000;
+box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.accordion-content {
+padding: 10px 15px;
+display: none;
+background-color: #f9f9f9;
+font-size: var(--font-size-sm-md);px;
+line-height: 30px;
+text-align: left;
+transition: max-height 0.2s ease-out;
+min-height: 130px;
+}
+
+.accordion-content p {
+margin-top: 0px;
+}
+
+.accordion-content.show {
+display: block;
+}
+
+.accbtn-head {
+gap: 10px;
+}
+
+@media screen and (max-width: 500px) {
+.accbtn-head {
+font-size: var(--font-size-sm-md);px;
+}
+
+accbtn-head img {
+width: 32px;
+}
+}
+
+
+-------------- CLIENTS ------------------
+
+<div class="bg-gray pb-50 slider">
+    <div class="container">
+        <h2 class="text-center">Proudly Serving</h2>
+        <div class=" client-slide-track ptb-50">
+            <div class="slide">
+                <img src="assets/images/clients/aquapharm.svg" alt="" />
+            </div>
+            <div class="slide">
+                <img src="assets/images/clients//capita.svg" alt="" />
+            </div>
+            <div class="slide">
+                <img src="assets/images/clients/cognizant.svg" alt="" />
+            </div>
+            <div class="slide">
+                <img src="assets/images/clients/credence.svg" alt="" />
+            </div>
+            <div class="slide">
+                <img src="assets/images/clients/credit-suisse.svg" alt="" />
+            </div>
+            <div class="slide">
+                <img src="assets/images/clients/fis.svg" alt="" />
+            </div>
+            <div class="slide">
+                <img src="assets/images/clients/gaia.svg" alt="" />
+            </div>
+            <div class="slide">
+                <img src="assets/images/clients/mahindra.svg" alt="" />
+            </div>
+            <div class="slide">
+                <img src="assets/images/clients/principal.svg" alt="" />
+            </div>
+            <div class="slide">
+                <img src="assets/images/clients/sears.svg" alt="" />
+            </div>
+            <div class="slide">
+                <img src="assets/images/clients/tata.svg" alt="" />
+            </div>
+            <div class="slide">
+                <img src="assets/images/clients/vi.svg" alt="" />
+            </div>
+            <div class="slide">
+                <img src="assets/images/clients/aquapharm.svg" alt="" />
+            </div>
+            <div class="slide">
+                <img src="assets/images/clients//capita.svg" alt="" />
+            </div>
+            <div class="slide">
+                <img src="assets/images/clients/cognizant.svg" alt="" />
+            </div>
+            <div class="slide">
+                <img src="assets/images/clients/credence.svg" alt="" />
+            </div>
+            <div class="slide">
+                <img src="assets/images/clients/credit-suisse.svg" alt="" />
+            </div>
+            <div class="slide">
+                <img src="assets/images/clients/fis.svg" alt="" />
+            </div>
+            <div class="slide">
+                <img src="assets/images/clients/gaia.svg" alt="" />
+            </div>
+            <div class="slide">
+                <img src="assets/images/clients/mahindra.svg" alt="" />
+            </div>
+            <div class="slide">
+                <img src="assets/images/clients/principal.svg" alt="" />
+            </div>
+            <div class="slide">
+                <img src="assets/images/clients/sears.svg" alt="" />
+            </div>
+            <div class="slide">
+                <img src="assets/images/clients/tata.svg" alt="" />
+            </div>
+            <div class="slide">
+                <img src="assets/images/clients/vi.svg" alt="" />
+            </div>
+        </div>
+    </div>
+</div>
+
+css
+.slider h3 {
+text-align: center;
+}
+
+.slider div {
+overflow: hidden;
+}
+
+@keyframes scroll {
+0% {
+transform: translateX(0);
+}
+
+100% {
+transform: translateX(calc(-250px * 12));
+}
+}
+
+.slider {
+background: rgba(241, 244, 249, 1);
+height: auto;
+margin: auto;
+overflow: hidden;
+position: relative;
+
+&::before,
+&::after {
+content: "";
+height: 100px;
+position: absolute;
+width: 200px;
+z-index: 2;
+}
+
+&::after {
+right: 0;
+top: 0;
+transform: rotateZ(180deg);
+}
+
+&::before {
+left: 0;
+top: 0;
+}
+
+.client-slide-track {
+animation: scroll 12s linear infinite;
+display: flex;
+width: calc(250px * 24);
+}
+
+.slide {
+height: 100px;
+width: 250px;
+}
+
+.slide img {
+height: 40px;
+width: 120px;
+}
+}
+
+
+
+
+
+ //////////////////////////
+
+@media screen and (max-width: 425px) {
+.head-bold {
+height: 3rem;
+}
+
+.head-bold span {
+font-size: var(--font-size-md-xl);
+}
+
+
+@keyframes moveUp {
+0% {
+transform: translateY(0);
+}
+
+12% {
+transform: translateY(0);
+}
+
+24% {
+transform: translateY(-2.2rem);
+}
+
+36% {
+transform: translateY(-2.2rem);
+}
+
+48% {
+transform: translateY(-5rem);
+}
+
+60% {
+transform: translateY(-5rem);
+}
+
+72% {
+transform: translateY(-7rem);
+}
+
+84% {
+transform: translateY(-7rem);
+}
+
+90% {
+transform: translateY(-8.7rem);
+}
+
+90.0001% {
+transform: translateY(3rem);
+}
+}
+}
