@@ -53,57 +53,71 @@ get_header();
 		</div>
 
 		<div class="mt-40 cert-stats">
+			<!-- certificates and companies -->
 			<p class="detail">Certifications and Companies</p>
-			<div class="cert-list bg-no-repeat d-flex">
+			<div class="cert-list bg-no-repeat d-flex flex-wrap">
 				<?php
 				$args = array(
-					'post_type' => 'certificates',
+					'post_type' => 'certificate',
 					'posts_per_page' => -1,
 				);
+
 				$query = new WP_Query($args);
 
 				if ($query->have_posts()) :
 					$counter = 1;
-					while ($query->have_posts()) : $query->the_post(); ?>
-						<span class="cert-img cert-img-<?php echo $counter; ?> icon-52 img"
-							style="background-image: url('<?php echo get_the_post_thumbnail_url(get_the_ID(), 'thumbnail'); ?>');">
-						</span>
-						<?php $counter++;
-						?>
-					<?php endwhile; ?>
-				<?php endif;
-				wp_reset_postdata(); ?>
+					while ($query->have_posts()) : $query->the_post();
+						// Check if the post has a featured image
+						$thumbnail_url = get_the_post_thumbnail_url(get_the_ID(), 'thumbnail');
+						if ($thumbnail_url) :
+				?>
+							<span class="cert-img cert-img-<?php echo $counter; ?> icon-52 img"
+								style="background-image: url('<?php echo esc_url($thumbnail_url); ?>');">
+							</span>
+				<?php
+						else :
+							echo '<span class="cert-img">No Image Available</span>'; // Fallback text
+						endif;
+						$counter++;
+					endwhile;
+				else :
+					echo '<p>No certificates found.</p>';
+				endif;
+
+				wp_reset_postdata();
+				?>
 			</div>
+		</div>
 
 
-			<div class="stats-reviews">
-				<div class="reviews-row">
-					<!-- First Card -->
-					<div class="card bg-blue flex-wrap text-small">
-						<div class="card-header font-48">4+</div>
-						<p class="card-text">MultiCity Fleet Service Operations</p>
-					</div>
+		<div class="stats-reviews">
+			<div class="reviews-row">
+				<!-- First Card -->
+				<div class="card bg-blue flex-wrap text-small">
+					<div class="card-header font-48">4+</div>
+					<p class="card-text">MultiCity Fleet Service Operations</p>
+				</div>
 
-					<!-- Second Card -->
-					<div class="card bg-blue flex-wrap text-small">
-						<div class="card-header font-48">650+</div>
-						<p class="card-text">Vehicles operating at locations</p>
-					</div>
+				<!-- Second Card -->
+				<div class="card bg-blue flex-wrap text-small">
+					<div class="card-header font-48">650+</div>
+					<p class="card-text">Vehicles operating at locations</p>
+				</div>
 
-					<!-- Third Card -->
-					<div class="card bg-blue flex-wrap text-small">
-						<div class="card-header font-48">5+</div>
-						<p class="card-text">Fleet Solutions Tailored to Your Business Needs</p>
-					</div>
+				<!-- Third Card -->
+				<div class="card bg-blue flex-wrap text-small">
+					<div class="card-header font-48">5+</div>
+					<p class="card-text">Fleet Solutions Tailored to Your Business Needs</p>
+				</div>
 
-					<!-- Fourth Card -->
-					<div class="card bg-blue flex-wrap text-small">
-						<div class="card-header font-48">2.5k+</div>
-						<p class="card-text">People Commute Smoothly to Work Every Day</p>
-					</div>
+				<!-- Fourth Card -->
+				<div class="card bg-blue flex-wrap text-small">
+					<div class="card-header font-48">2.5k+</div>
+					<p class="card-text">People Commute Smoothly to Work Every Day</p>
 				</div>
 			</div>
 		</div>
+	</div>
 	</div>
 </section>
 
@@ -123,16 +137,11 @@ get_header();
 			'post_type' => 'post',
 			'posts_per_page' => 3,
 		);
-
 		$query = new WP_Query($args);
-
-		// Check if there are posts
 		if ($query->have_posts()) :
-			// Start the loop to display posts
 			while ($query->have_posts()) : $query->the_post();
 		?>
 				<div class="card outline justify-space-between text-small mw-380">
-					<!-- Post Thumbnail -->
 					<div class="post-thumbnail">
 						<a href="<?= get_permalink(get_page_by_path('blog-details')) ?>">
 							<img src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'medium'); ?>" alt="blog card" class="rounded" />
@@ -140,8 +149,6 @@ get_header();
 					</div>
 					<!-- Post Title -->
 					<h4 class="overflow-txt w-100 m-0"><?php the_title(); ?></h4>
-
-					<!-- Post Meta (Date & Read More link) -->
 					<div class="d-flex justify-space-between blog-info w-100">
 						<p><?php echo get_the_date('d M Y'); ?></p>
 						<a href="<?= get_permalink(get_page_by_path('blog-details')) ?>">Read More</a>
@@ -152,13 +159,9 @@ get_header();
 		else :
 			echo '<p>No posts found.</p>';
 		endif;
-
-		// Reset post data after the loop
 		wp_reset_postdata();
 		?>
 	</div>
-
-
 </section>
 
 <!-- Reviews -->
@@ -179,7 +182,6 @@ get_header();
 			<?php while ($query->have_posts()) : $query->the_post(); ?>
 				<div class="review-slide text-center text-small">
 					<?php the_content(); ?>
-
 					<span class="opening-quote img"></span>
 					<img src="<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(), 'thumbnail')); ?>" alt="<?php esc_attr(the_title()); ?>" class="rounded" />
 				</div>
@@ -187,7 +189,7 @@ get_header();
 			endwhile; ?>
 
 		</div>
-		<div class="indicators">
+		<div class="indicators w-100">
 			<span class="indicator" data-slide="0"></span>
 			<span class="indicator" data-slide="1"></span>
 			<span class="indicator" data-slide="2"></span>
@@ -271,18 +273,7 @@ get_header();
 </section>
 
 <!-- Gallery -->
-<div class="container ptb-50">
-	<div class="gallery">
-		<img src="<?php the_field('gallery_image_1'); ?>" alt="gallery image 1" />
-		<?php the_field('gallery_image_1') ?>
-		<?php echo 'foreheads' ?>
-		<img src="<?php echo esc_url(get_field('gallery_image_2')['url']); ?>" alt="gallery image 2" />
-		<img src="<?php echo esc_url(get_field('gallery_image_3')['url']); ?>" alt="gallery image 3" />
-		<img src="<?php echo esc_url(get_field('gallery_image_4')['url']); ?>" alt="gallery image 4" />
-		<img src="<?php echo esc_url(get_field('gallery_image_5')['url']); ?>" alt="gallery image 5" />
-		<img src="<?php echo esc_url(get_field('gallery_image_6')['url']); ?>" alt="gallery image 6" />
-	</div>
-</div>
+<?php get_template_part('template-parts/gallery'); ?>
 
 <!-- clients -->
 

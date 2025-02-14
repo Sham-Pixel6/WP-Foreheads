@@ -4,12 +4,10 @@ add_theme_support('custom-logo');
 
 function load_stylesheets()
 {
-    // Always load global styles
     wp_enqueue_style('styles', get_template_directory_uri() . '/assets/styles/styles.css', array(), false, 'all');
     wp_enqueue_style('google-fonts', '//fonts.googleapis.com/css2?family=Aboreto&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Lexend:wght@100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Space+Grotesk:wght@300..700&display=swap', array(), false, 'all');
     wp_enqueue_style('font-awesome', '//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css', array(), false, 'all');
     wp_enqueue_style('swiper', '//unpkg.com/swiper/swiper-bundle.min.css', array(), false, 'all');
-    // Get the current page slug
     if (is_page()) {
         $slug = get_post_field('post_name', get_queried_object_id());
 
@@ -33,7 +31,7 @@ function load_stylesheets()
 
 add_action('wp_enqueue_scripts', 'load_stylesheets');
 
-
+// Load JavaScript files
 function load_js()
 {
     $scripts = array(
@@ -51,7 +49,7 @@ function load_js()
 }
 
 add_action('wp_enqueue_scripts', 'load_js');
-
+// Add custom image sizes
 function get_image_details($image_id)
 {
     if ($image_id) {
@@ -62,7 +60,7 @@ function get_image_details($image_id)
     }
     return false;
 }
-
+// get title for page
 function title_for_page()
 {
     add_theme_support('title-tag');
@@ -71,6 +69,8 @@ function title_for_page()
 add_action('after_setup_theme', 'title_for_page');
 add_theme_support('post-thumbnails');
 
+
+// Register Navigation Menus
 function mytheme_register_widget_areas()
 {
     register_sidebar(array(
@@ -95,7 +95,7 @@ function mytheme_register_widget_areas()
 
 add_action('widgets_init', 'mytheme_register_widget_areas');
 
-
+// Register Sidebar
 function mytheme_register_sidebar()
 {
     register_sidebar(array(
@@ -110,42 +110,63 @@ function mytheme_register_sidebar()
 }
 add_action('widgets_init', 'mytheme_register_sidebar');
 
-
+// Register Widgets
 require get_template_directory() . '/template-parts/widgets.php';
 
-
-function theme_customizer_register($wp_customize)
-{
-    $wp_customize->add_section('gallery_section', array(
-        'title'    => __('Gallery Images', 'your-theme'),
-        'priority' => 30,
-    ));
-    for ($i = 1; $i <= 6; $i++) {
-        $wp_customize->add_setting("gallery_image_$i", array(
-            'default' => '',
-            'sanitize_callback' => 'esc_url_raw',
-        ));
-        $wp_customize->add_control(new WP_Customize_Image_Control(
-            $wp_customize,
-            "gallery_image_$i",
-            array(
-                'label'    => "Gallery Image $i",
-                'section'  => 'gallery_section',
-                'settings' => "gallery_image_$i",
-            )
-        ));
-    }
-}
-add_action('customize_register', 'theme_customizer_register');
-
+// Register Certificate's Custom Post Type
 function register_certificate_post_type()
 {
     $args = array(
-        'label'         => 'Certificates',
+        'labels' => array(
+            'name'               => 'Certificates',
+            'singular_name'      => 'Certificate',
+            'add_new'            => 'Add New',
+            'add_new_item'       => 'Add New Certificate',
+            'edit_item'          => 'Edit Certificate',
+            'new_item'           => 'New Certificate',
+            'view_item'          => 'View Certificate',
+            'search_items'       => 'Search Certificates',
+            'not_found'          => 'No certificates found',
+            'not_found_in_trash' => 'No certificates found in Trash',
+        ),
         'public'        => true,
+        'show_in_rest'  => true, // For Gutenberg support
         'menu_icon'     => 'dashicons-awards',
-        'supports'      => array('title', 'thumbnail', 'custom-fields'), // Enable custom fields
+        'supports'      => array('title', 'thumbnail', 'custom-fields'), // Enable custom fields and featured image
+        'has_archive'   => true,  // Enable archive page
+        'rewrite'       => array('slug' => 'certificates'), // Custom URL slug
+        'show_in_nav_menus' => true, // Allow it in menus
+        'menu_position' => 5, // Position in the admin menu
     );
     register_post_type('certificate', $args);
 }
 add_action('init', 'register_certificate_post_type');
+
+// Register Gallery Custom Post Type
+function create_gallery_cpt()
+{
+    $args = array(
+        'labels' => array(
+            'name'               => 'Galleries',
+            'singular_name'      => 'Gallery',
+            'add_new'            => 'Add New Gallery',
+            'add_new_item'       => 'Add New Gallery',
+            'edit_item'          => 'Edit Gallery',
+            'new_item'           => 'New Gallery',
+            'view_item'          => 'View Gallery',
+            'search_items'       => 'Search Galleries',
+            'not_found'          => 'No galleries found',
+            'not_found_in_trash' => 'No galleries found in Trash',
+            'menu_name'          => 'Galleries',
+        ),
+        'public' => true,
+        'has_archive' => true,
+        'show_in_rest' => true, // This is important for Gutenberg block support
+        'supports' => array('title', 'editor', 'thumbnail'),
+        'taxonomies' => array('category'), // You can also add custom taxonomies here
+        'rewrite' => array('slug' => 'galleries'),
+        'show_in_menu' => true,
+    );
+    register_post_type('gallery', $args);
+}
+add_action('init', 'create_gallery_cpt');

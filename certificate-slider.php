@@ -68,7 +68,8 @@
             this.left_arrow = document.querySelector('.nav-arrow-left');
             this.right_arrow = document.querySelector('.nav-arrow-right');
 
-            this.currentIndex = 0;
+            // Start from the second slide
+            this.currentIndex = 1;
 
             this.init();
         }
@@ -83,6 +84,7 @@
             const newWidth = Number(this.slideWidth.slice(0, -2));
             const offset = (this.container.offsetWidth - newWidth) / 2;
             const baseTransform = -this.currentIndex * newWidth + offset;
+
             this.slider.style.transform = `translateX(${baseTransform}px)`;
 
             slides.forEach((slide, index) => {
@@ -92,15 +94,12 @@
 
             this.updateArrowColors();
         }
-
         normalizeIndex(index) {
             return index % this.divs.length;
         }
-
         moveSlides(direction) {
             if (this.isAnimating) return;
             this.isAnimating = true;
-
             if (direction === 1 && this.currentIndex >= this.divs.length - 1) {
                 this.isAnimating = false;
                 return;
@@ -110,62 +109,50 @@
                 this.isAnimating = false;
                 return;
             }
-
             this.currentIndex += direction;
-
             this.slider.style.transition = 'transform 0.3s ease-out';
             this.positionSlides();
-
             if (this.currentIndex >= this.divs.length || this.currentIndex < 0) {
                 setTimeout(() => {
                     this.slider.style.transition = 'none';
-                    this.currentIndex = Math.max(0, Math.min(this.divs.length - 1, this.currentIndex));
+                    this.currentIndex = Math.max(0, Math.min(this.divs.length - 1, this.currentIndex)); // Correct bounds
                     this.positionSlides();
                 }, 300);
             }
-
             setTimeout(() => {
                 this.isAnimating = false;
             }, 300);
         }
-
         setupEventListeners() {
             this.container.addEventListener('mouseenter', () => {
                 this.cursor.style.opacity = '1';
                 this.stopAutoplay();
             });
-
             this.container.addEventListener('mouseleave', () => {
                 this.cursor.style.opacity = '0';
                 this.startAutoplay();
             });
-
             window.addEventListener('resize', () => {
                 this.positionSlides()
             });
-
             if (this.left_arrow) {
                 this.left_arrow.addEventListener('click', () => this.moveSlides(-1));
             }
-
             if (this.right_arrow) {
-                this.right_arrow.addEventListener('click', () => this.moveSlides(+1));
+                this.right_arrow.addEventListener('click', () => this.moveSlides(1));
             }
         }
-
         startAutoplay() {
             this.stopAutoplay();
             this.autoplayInterval = setInterval(() => {
                 this.moveSlides(1);
             }, 3000);
         }
-
         stopAutoplay() {
             if (this.autoplayInterval) {
                 clearInterval(this.autoplayInterval);
             }
         }
-
         updateArrowColors() {
             const leftSvg = this.left_arrow.querySelector('svg');
             const rightSvg = this.right_arrow.querySelector('svg');
@@ -194,7 +181,6 @@
             }
         }
     }
-
     document.addEventListener('DOMContentLoaded', () => {
         new Slider();
     });

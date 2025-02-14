@@ -16,9 +16,7 @@
 	<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/style.css">
 </head>
 
-
 <body>
-
 	<!-- Navbar -->
 	<div class="header-nav">
 		<header class="container">
@@ -26,7 +24,6 @@
 				<a class="navbar-brand" href="<?php echo home_url('/'); ?>">
 					<img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/Foreheads_Logo.png" alt="Logo">
 				</a>
-				<!-- Navigation -->
 				<?php
 				wp_nav_menu(array(
 					'menu' => "site menu",
@@ -34,8 +31,6 @@
 					'container_class'	=> "collapse navbar-collapse",
 				));
 				?>
-
-
 				<a href="javascript:void(0);" class="icon btn" onclick="toggleNavbar()">
 					<img src="<?php echo get_template_directory_uri(); ?>/assets/images/nav-icon.svg" alt="nav-icon">
 				</a>

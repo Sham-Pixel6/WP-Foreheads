@@ -32,9 +32,7 @@ if (is_active_sidebar('main-sidebar')) : ?>
 								<img src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'medium'); ?>" alt="<?php the_title(); ?>" class="rounded" />
 							</a>
 						</div>
-						<div class="d-flex justify-space-between blog-info w-100">
-							<a href="<?php the_permalink(); ?>">Read More</a>
-						</div>
+						<h6 class="overflow-txt w-100 m-0"><?php the_title(); ?></h6>
 					</div>
 			<?php
 				endwhile;

@@ -18,12 +18,12 @@
                     <a class="navbar-brand" href="<?php site_url('/') ?>">
                         <img src="<?= get_template_directory_uri() ?>/assets/images/Foreheads_Logo.png" alt="Logo">
                     </a>
-                    <ul class="d-flex">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="<?php site_url() ?>services/">Services</a></li>
-                        <li><a href="<?php site_url() ?>about/">About</a></li>
-                        <li><a href="<?php site_url() ?>blog/">Updates</a></li>
-                        <li><a href="<?php site_url() ?>lets-talk/">Contact</a></li>
+                    <ul class="d-flex footer-menu">
+                        <li class="<?= (basename($_SERVER['REQUEST_URI']) == 'index.php' || $_SERVER['REQUEST_URI'] == '/') ? 'active' : '' ?>"><a href="#">Home</a></li>
+                        <li class="<?= (basename($_SERVER['REQUEST_URI']) == 'services') ? 'active' : '' ?>"><a href="<?php site_url() ?>services/">Services</a></li>
+                        <li class="<?= (basename($_SERVER['REQUEST_URI']) == 'about') ? 'active' : '' ?>"><a href="<?php site_url() ?>about/">About</a></li>
+                        <li class="<?= (basename($_SERVER['REQUEST_URI']) == 'blog') ? 'active' : '' ?>"><a href="<?php site_url() ?>blog/">Updates</a></li>
+                        <li class="<?= (basename($_SERVER['REQUEST_URI']) == 'lets-talk') ? 'active' : '' ?>"><a href="<?php site_url() ?>lets-talk/">Contact</a></li>
                     </ul>
                 </nav>
                 <!--Addresses-->
