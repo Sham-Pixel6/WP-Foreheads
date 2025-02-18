@@ -6,7 +6,7 @@
 <?php get_header(); ?>
 
 <!-- News & Updates -->
-<section class="container pb-50">
+<section class="container">
     <div class="blog-header updates-header d-flex pb-50">
         <h2>News & Updates</h2>
         <div class="blog-search text-small text-center">
@@ -51,7 +51,7 @@
 
     </div>
 
-    <div class="pagination ptb-50">
+    <div class="pagination">
         <?php
         echo paginate_links(array(
             'total'   => $query->max_num_pages,

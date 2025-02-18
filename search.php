@@ -52,6 +52,7 @@ get_header();
 		<div class="not-found">
 			<img src="<?= get_template_directory_uri() ?>./assets/images/zero-searches.jpg" alt="">
 		</div>
+		<h4 class="not-found">Back to <a href="<?php echo site_url('/blog'); ?>">Update's</a> Page</h4>
 	<?php endif; ?>
 
 </section>

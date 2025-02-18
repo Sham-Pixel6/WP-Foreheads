@@ -6,9 +6,6 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<!-- <title>Forehead</title> -->
-
-
 	<link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/favicon.png" type="image/png">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,7 +19,7 @@
 		<header class="container">
 			<nav class="navbar d-flex" id="navbar">
 				<a class="navbar-brand" href="<?php echo home_url('/'); ?>">
-					<img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/Foreheads_Logo.png" alt="Logo">
+					<img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/foreheads-logo.png" alt="Logo">
 				</a>
 				<?php
 				wp_nav_menu(array(

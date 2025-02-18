@@ -20,10 +20,11 @@
         <p class="detail">
             At Foreheads, we pride ourselves on providing a comprehensive range of services to meet your every
             transportation need.
+            We provide 24/7 operational support to your teams.
         </p>
     </div>
     <div class="blog-cards">
-        <div class="card outline-gray">
+        <div class="card outline-gray jusrify-space-between text-small">
             <div class="col-head">
                 <span class="img icon-64 card-img-1"></span>
                 <h4 class="m-0 mtb-10">Operations</h4>

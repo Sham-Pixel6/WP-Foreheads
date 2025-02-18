@@ -68,7 +68,7 @@ get_header();
 					$counter = 1;
 					while ($query->have_posts()) : $query->the_post();
 						// Check if the post has a featured image
-						$thumbnail_url = get_the_post_thumbnail_url(get_the_ID(), 'thumbnail');
+						$thumbnail_url = get_the_post_thumbnail_url(get_the_ID(), 'full');
 						if ($thumbnail_url) :
 				?>
 							<span class="cert-img cert-img-<?php echo $counter; ?> icon-52 img"
@@ -122,7 +122,7 @@ get_header();
 </section>
 
 <!-- News & Updates -->
-<section class="container pb-50">
+<section class="container news-section pb-50">
 	<div class="blog-header d-flex">
 		<h2>News &amp; Updates</h2>
 		<a class="more-arrow d-flex" href="<?= site_url(); ?>/blog">

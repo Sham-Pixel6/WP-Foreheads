@@ -7,11 +7,13 @@
 <?php get_header(); ?>
 
 <section class="footer">
-    <section class="ptb-50" id="lets-talk">
+    <section class="pb-50" id="lets-talk">
         <h2 class="lets-talk">Let's Talk</h2>
         <div class="contact-form d-flex">
             <span class="lets-talk-image bg-no-repeat"></span>
-            <?php echo do_shortcode('[contact-form-7 id="9b66d15" title="Contact Foreheads"]'); ?>
+            <?php // echo do_shortcode('[contact-form-7 id="9b66d15" title="Contact Foreheads"]'); 
+            ?>
+            <?php get_template_part('template-parts/contact-form'); ?>
         </div>
     </section>
     <section class="container ptb-50">

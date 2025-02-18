@@ -26,7 +26,7 @@ if (is_active_sidebar('main-sidebar')) : ?>
 			if ($query->have_posts()) :
 				while ($query->have_posts()) : $query->the_post();
 			?>
-					<div class="card outline justify-space-between text-small mw-380">
+					<div class="card outline justify-space-between text-small mw-380 sidebar-card">
 						<div class="post-thumbnail">
 							<a href="<?php the_permalink(); ?>">
 								<img src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'medium'); ?>" alt="<?php the_title(); ?>" class="rounded" />

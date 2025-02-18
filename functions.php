@@ -34,21 +34,36 @@ add_action('wp_enqueue_scripts', 'load_stylesheets');
 // Load JavaScript files
 function load_js()
 {
-    $scripts = array(
-        'navbar' => get_template_directory_uri() . '/script/navbar.js',
-        'accordian' => get_template_directory_uri() . '/script/accordian.js',
-        'reviews' => get_template_directory_uri() . '/script/reviews.js',
-        'about-us' => get_template_directory_uri() . '/script/about-us.js',
-        'blogs' => get_template_directory_uri() . '/script/blogs.js',
-    );
-
-    foreach ($scripts as $script => $url) {
-        wp_register_script($script, $url);
-        wp_enqueue_script($script);
+    wp_enqueue_script('navbar', get_template_directory_uri() . '/script/navbar.js');
+    if (is_page()) {
+        $slug = get_post_field('post_name', get_queried_object_id());
+        $page_scripts = array(
+            'about-us' => 'about-us.js',
+            'services' => 'services.js',
+            'blog-detail' => 'blog-detail.js',
+            'blogs' => 'blogs.js',
+        );
+        if (array_key_exists($slug, $page_scripts)) {
+            wp_enqueue_script($slug, get_template_directory_uri() . '/script/' . $page_scripts[$slug], array(), false, true);
+        } else {
+            wp_enqueue_script('page-default', get_template_directory_uri() . '/script/page-default.js', array(), false, true);
+        }
     }
 }
-
 add_action('wp_enqueue_scripts', 'load_js');
+
+add_filter('wpcf7_load_js', '__return_true');
+add_filter('wpcf7_load_css', '__return_true');
+
+function load_jquery_for_cf7()
+{
+    if (!is_admin()) {
+        wp_enqueue_script('jquery');
+    }
+}
+add_action('wp_enqueue_scripts', 'load_jquery_for_cf7');
+
+
 // Add custom image sizes
 function get_image_details($image_id)
 {
@@ -130,13 +145,13 @@ function register_certificate_post_type()
             'not_found_in_trash' => 'No certificates found in Trash',
         ),
         'public'        => true,
-        'show_in_rest'  => true, // For Gutenberg support
+        'show_in_rest'  => true,
         'menu_icon'     => 'dashicons-awards',
-        'supports'      => array('title', 'thumbnail', 'custom-fields'), // Enable custom fields and featured image
-        'has_archive'   => true,  // Enable archive page
-        'rewrite'       => array('slug' => 'certificates'), // Custom URL slug
-        'show_in_nav_menus' => true, // Allow it in menus
-        'menu_position' => 5, // Position in the admin menu
+        'supports'      => array('title', 'thumbnail', 'custom-fields'),
+        'has_archive'   => true,
+        'rewrite'       => array('slug' => 'certificates'),
+        'show_in_nav_menus' => true,
+        'menu_position' => 5,
     );
     register_post_type('certificate', $args);
 }
@@ -170,3 +185,55 @@ function create_gallery_cpt()
     register_post_type('gallery', $args);
 }
 add_action('init', 'create_gallery_cpt');
+
+// Only show posts in search results
+function custom_search_query($query)
+{
+    if ($query->is_search() && $query->is_main_query()) {
+        $query->set('post_type', 'post');
+    }
+}
+add_action('pre_get_posts', 'custom_search_query');
+
+//send the email using wp_mail
+function handle_contact_form_submission()
+{
+    if (isset($_POST['your-name']) && isset($_POST['your-email']) && isset($_POST['your-contact-number']) && isset($_POST['your-message'])) {
+        $name = sanitize_text_field($_POST['your-name']);
+        $email = sanitize_email($_POST['your-email']);
+        $phone = sanitize_text_field($_POST['your-contact-number']);
+        $message = sanitize_textarea_field($_POST['your-message']);
+
+        // Email recipient
+        $to = 'info@foreheads.in';
+
+        // Email subject
+        $subject = 'New Contact Form Submission';
+
+        // Prepare email content
+        $email_content = "Name: $name\n";
+        $email_content .= "Email: $email\n";
+        $email_content .= "Phone: $phone\n";
+        $email_content .= "Message: \n$message\n";
+
+        // Email headers
+        $headers = "From: $email\r\n";
+        $headers .= "Reply-To: $email\r\n";
+        $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
+
+        // Send the email using wp_mail()
+        $mail_sent = wp_mail($to, $subject, $email_content, $headers);
+
+        // Return JSON response
+        if ($mail_sent) {
+            echo json_encode(['success' => true]);
+        } else {
+            echo json_encode(['success' => false, 'message' => 'Failed to send email']);
+        }
+    } else {
+        echo json_encode(['success' => false, 'message' => 'Missing form data']);
+    }
+    wp_die();
+}
+add_action('wp_ajax_send_contact_form', 'handle_contact_form_submission');
+add_action('wp_ajax_nopriv_send_contact_form', 'handle_contact_form_submission');
