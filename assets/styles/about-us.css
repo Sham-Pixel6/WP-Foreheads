@@ -172,6 +172,7 @@ cert-num {
 
     .cert-img img {
         width: 100px;
+        height: auto;
     }
 }
 

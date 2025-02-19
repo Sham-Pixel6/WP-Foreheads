@@ -1,13 +1,4 @@
-.banner {
-    background-image: url('../images/services-hero-img.jpg');
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-    width: 100%;
-    height: var(--service-hero-height);
-}
-
-.icon-64 {
+/* .icon-64 {
     margin: 0;
 }
 
@@ -60,4 +51,4 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-}
+} */

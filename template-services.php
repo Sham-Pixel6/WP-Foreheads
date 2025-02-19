@@ -13,7 +13,7 @@
 </section>
 
 <section class="container pb-50">
-    <div class="">
+    <div class="section-header">
         <div class="blog-header">
             <h2>Why Chose Foreheads</h2>
         </div>
@@ -23,8 +23,8 @@
             We provide 24/7 operational support to your teams.
         </p>
     </div>
-    <div class="blog-cards">
-        <div class="card outline-gray jusrify-space-between text-small">
+    <div class="blog-cards services-card">
+        <div class="card outline-gray justify-space-between text-small">
             <div class="col-head">
                 <span class="img icon-64 card-img-1"></span>
                 <h4 class="m-0 mtb-10">Operations</h4>
@@ -83,7 +83,7 @@
 <!-- Transport solutions-->
 <section class="bg-gray ptb-50">
     <div class="container">
-        <div class="">
+        <div class="section-header">
             <div class="blog-header">
                 <h2>Our Transport Solutions</h2>
             </div>

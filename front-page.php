@@ -209,7 +209,7 @@ get_header();
 	<div class="container">
 
 		<!-- heading -->
-		<div>
+		<div class="section-header">
 			<div class="blog-header d-flex">
 				<h2>About Us</h2>
 				<a class="more-arrow d-flex" href="<?= get_permalink(get_page_by_path('about-us')) ?>">

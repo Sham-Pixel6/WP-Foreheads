@@ -4,8 +4,8 @@ class My_Widget extends WP_Widget
     public function __construct()
     {
         parent::__construct(
-            'foreheads-address',  // Base ID
-            'Foreheads Address'   // Name
+            'foreheads-address', // Widget ID
+            'Foreheads Address' // Widget Name
         );
     }
 
@@ -18,7 +18,7 @@ class My_Widget extends WP_Widget
 
     public function widget($args, $instance)
     {
-        echo $args['before_widget']; // Important: Wraps widget properly
+        echo $args['before_widget'];
 
         echo '<div class="address">';
 
@@ -58,7 +58,7 @@ class My_Widget extends WP_Widget
         }
         echo '</div>';
 
-        echo '</div>'; // End .address
+        echo '</div>'; // End address
 
         echo $args['after_widget'];
     }
@@ -115,7 +115,7 @@ class Benefits_Widget extends WP_Widget
         echo $args['before_widget'];
 ?>
         <section class="container ptb-50">
-            <div class="">
+            <div class="section-header">
                 <div class="blog-header d-flex">
                     <h2><?php echo esc_html($instance['title']); ?></h2>
                     <a class="more-arrow d-flex" href="<?= site_url(); ?>/services">

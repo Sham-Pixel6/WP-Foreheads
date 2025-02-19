@@ -4,21 +4,22 @@
             <h2 class="lets-talk">Let's Talk</h2>
             <div class="contact-form d-flex">
                 <span class="lets-talk-image bg-no-repeat"></span>
-                <?php // echo do_shortcode('[contact-form-7 id="9b66d15" title="Contact Foreheads"]'); 
+                <?php echo do_shortcode('[contact-form-7 id="cabf764" title="Contact Foreheads"]');
                 ?>
-                <?php get_template_part('template-parts/contact-form'); ?>
+                <?php // get_template_part('template-parts/contact-form'); 
+                ?>
             </div>
         </section>
     <?php endif; ?>
 
     <!-- footer -->
     <div class="bg-gray">
-        <div class="footer-container container">
+        <div class="footer-container container pb-50">
             <div class="left-footer">
                 <!-- navbar-->
                 <nav class="d-flex foot-nav">
-                    <a class="navbar-brand" href="<?php site_url('/') ?>">
-                        <img src="<?= get_template_directory_uri() ?>/assets/images/foreheads-logo.png" alt="Logo">
+                    <a class="navbar-brand" href="<?php echo home_url('/'); ?>">
+                        <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/foreheads-logo.png" alt="Logo">
                     </a>
                     <ul class="d-flex footer-menu">
                         <li class="<?= ($_SERVER['REQUEST_URI'] == '/' || $_SERVER['REQUEST_URI'] == '/index.php') ? 'active' : '' ?>">
@@ -56,7 +57,6 @@
     <script src="<?php echo get_template_directory_uri(); ?>/script/navbar.js"></script>
     <script src="<?php echo get_template_directory_uri(); ?>/script/reviews.js"></script>
     <script src="<?= get_template_directory_uri() ?>/script/certificate-slider.js"></script>
-    <script src="<?= get_template_directory_uri() ?>/script/blogs.js"></script>
 
     </body>
 

@@ -46,7 +46,7 @@
 	--icon-64-width: clamp(44px, 10vw, 64px);
 	--icon-64-height: clamp(44px, 10vw, 64px);
 
-	--gap: clamp(10px, 1.2vw, 20px);
+	--gap: clamp(8px, 1.2vw, 20px);
 	--margin-left: clamp(2px, 1.2vw, 8px);
 
 	/* services hero image */
@@ -212,7 +212,7 @@ textarea {
 .container {
 	max-width: 1260px;
 	margin: 0 auto;
-	width: calc(100% - 200px);
+	width: calc(100% - 160px);
 }
 
 a,
@@ -248,8 +248,7 @@ button {
 
 .btn-lg:hover,
 .txt-blue:hover {
-	background-color: #fff !important;
-	color: var(--color-blue) !important;
+	background: #0065A8 !important;
 }
 
 .hover-blue a {
@@ -316,6 +315,7 @@ button {
 .bg-gray {
 	background-color: var(--color-light-greyish-blue);
 }
+
 
 .bg-light-gray {
 	background-color: var(--color-light-grey);
@@ -535,18 +535,20 @@ u .nav-item a,
 	color: var(--color-blue);
 }
 
+
 #menu-site-menu {
 	font-size: var(--font-size-15);
 }
 
-#menu-site-menu li:nth-last-child() .current-menu-item a {
-	border-bottom: none;
-}
-
 #menu-site-menu .current-menu-item a {
-	padding-bottom: 4px;
+	padding-bottom: 5px;
 	color: #0092f3;
 	border-bottom: 2px solid #0092f3;
+}
+
+#menu-site-menu .bg-gray a,
+#menu-site-menu .outline a {
+	border-bottom: none;
 }
 
 .footer-menu li.active a {
@@ -571,6 +573,8 @@ u .nav-item a,
 	overflow: hidden;
 	margin: 30px 0 0 0;
 	color: #0092f3;
+	position: relative;
+	z-index: 15;
 }
 
 .head-bold span {
@@ -628,6 +632,8 @@ u .nav-item a,
 }
 
 .head-semibold {
+	position: relative;
+	z-index: 15;
 	font-size: var(--font-size-lg-xl);
 	line-height: 28.8px;
 	margin: 20px 0 80px 0;
@@ -651,11 +657,14 @@ u .nav-item a,
 }
 
 .road-container {
-	height: 250px;
+	background-position: center;
+	background-size: cover;
+	width: 1600px;
+	height: 500px;
 	z-index: 0;
 	position: absolute;
-	top: 50px;
-	left: 240px;
+	top: -217px;
+	left: 338px;
 }
 
 .car-slider {
@@ -729,6 +738,8 @@ u .nav-item a,
 /* Stats and Companies */
 .cert-stats {
 	padding-top: 40px;
+	position: relative;
+	z-index: 15;
 }
 
 .cert-stats .detail {
@@ -1095,16 +1106,27 @@ u .nav-item a,
 }
 
 .contact-form {
-	justify-content: space-evenly;
 	font-size: var(--font-default);
 	line-height: 21px;
 	font-weight: 300;
 	color: var(--color-light-grey);
+	justify-content: center;
+}
+
+.contact-form p {
+	width: 100% !important;
 }
 
 .screen-reader-response,
 .screen-reader-response p {
 	display: none;
+}
+
+.wpcf7 {
+	max-width: 450px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
 .wpcf7-not-valid-tip,
@@ -1141,10 +1163,6 @@ u .nav-item a,
 
 .contact-form textarea {
 	height: 100px;
-}
-
-.name-grid {
-	max-width: 411px;
 }
 
 .name-grid,
@@ -1275,6 +1293,13 @@ blockquote p {
 }
 
 /* services */
+.services-card {
+	justify-items: normal;
+}
+
+.section-header {
+	padding-bottom: 30px;
+}
 
 .banner {
 	background-image: url('./assets/images/services-hero-img.jpg');
@@ -1283,6 +1308,7 @@ blockquote p {
 	background-position: center;
 	width: 100%;
 	height: var(--service-hero-height);
+	padding-bottom: 30px;
 }
 
 .icon-64 {
@@ -1314,9 +1340,9 @@ blockquote p {
 }
 
 .card-image {
-	background-size: contain;
+	background-size: cover;
 	background-repeat: no-repeat;
-	background-position: center;
+	background-position: top;
 	width: 100%;
 	height: 226px;
 }
@@ -1356,14 +1382,6 @@ blockquote p {
 	display: block;
 	width: 100%;
 	height: var(--error-banner-height);
-}
-
-.error-404 p {
-	text-align: center;
-}
-
-.error-404 a {
-	font-size: var(--font-size-sm-md);
 }
 
 /* contact-us */
@@ -1671,7 +1689,7 @@ blockquote p {
 	}
 
 	.contact-form form {
-		width: 100%;
+		/* width: 90%; */
 		gap: 0;
 	}
 
@@ -1746,7 +1764,7 @@ blockquote p {
 
 	.contact-form form {
 		margin: auto;
-		/* width: 80%; */
+		/* width: 90%; */
 	}
 }
 

@@ -18,3 +18,4 @@ document.addEventListener("DOMContentLoaded", function () {
     updateButtonText();
     window.addEventListener("resize", updateButtonText);
 });
+

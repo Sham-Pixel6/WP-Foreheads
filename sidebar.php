@@ -7,7 +7,10 @@
  *
  * @package P6Foreheads
  */
-if (is_active_sidebar('main-sidebar')) : ?>
+?>
+<?php
+
+if ('main-sidebar') : ?>
 	<aside id="secondary" class="widget-area">
 		<?php get_search_form(); ?>
 
@@ -32,7 +35,7 @@ if (is_active_sidebar('main-sidebar')) : ?>
 								<img src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'medium'); ?>" alt="<?php the_title(); ?>" class="rounded" />
 							</a>
 						</div>
-						<h6 class="overflow-txt w-100 m-0"><?php the_title(); ?></h6>
+						<h4 class="overflow-txt w-100 m-0"><?php the_title(); ?></h4>
 					</div>
 			<?php
 				endwhile;
