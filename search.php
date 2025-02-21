@@ -1,22 +1,28 @@
 <?php
-
-/**
- * The template for displaying search results pages
- *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#search-result
- *
- * @package P6Foreheads
- */
-
 get_header();
 ?>
 
-<section class="container pb-50">
-	<h2>Search Results for: "<?php echo get_search_query(); ?>"</h2>
+<section class="container ptb-50 search-result">
+	<div class="result-head d-flex justify-space-between">
+		<p>Search Results for - <b><?php echo get_search_query(); ?></b></p>
+		<div class="result-searchbar">
+			<?php get_search_form(); ?>
+		</div>
+	</div>
 
-	<?php if (have_posts()) : ?>
-		<div class="blog-cards">
-			<?php while (have_posts()) : the_post(); ?>
+	<?php if (have_posts()) :
+		$post_count = 0; // Count search results
+		while (have_posts()) : the_post();
+			$post_count++;
+		endwhile;
+
+		// Apply 'd-flex' when results are less than 3
+		$blog_cards_class = ($post_count < 3) ? 'd-flex pt-30 searched-cards' : 'blog-cards';
+	?>
+		<div class="<?php echo $blog_cards_class; ?>">
+			<?php
+			rewind_posts(); // Reset loop
+			while (have_posts()) : the_post(); ?>
 				<div class="search-item">
 					<div class="card outline justify-space-between text-small mw-380">
 						<div class="post-thumbnail">
@@ -50,7 +56,7 @@ get_header();
 
 	<?php else : ?>
 		<div class="not-found">
-			<img src="<?= get_template_directory_uri() ?>./assets/images/zero-searches.jpg" alt="">
+			<img src="<?= get_template_directory_uri() ?>/assets/images/zero-searches.jpg" alt="">
 		</div>
 		<h4 class="not-found">Back to <a href="<?php echo site_url('/blog'); ?>">Update's</a> Page</h4>
 	<?php endif; ?>

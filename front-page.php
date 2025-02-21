@@ -21,6 +21,7 @@ get_header();
 	<div class="container">
 		<div>
 			<div class="header-vt-slider">
+				<div class="header-gradient"></div>
 				<h1 class="head-bold">
 					<span class="head-span-1"><?php the_field('header_span_1') ?></span>
 					<span class="head-span-2"><?php the_field('header_span_2') ?></span>
@@ -166,7 +167,7 @@ get_header();
 
 <!-- Reviews -->
 
-<div class="reviews ptb-50">
+<div class="container reviews ptb-50">
 	<?php
 	// Query to fetch 3 testimonials
 	$args = array(

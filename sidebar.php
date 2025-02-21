@@ -7,14 +7,11 @@
  *
  * @package P6Foreheads
  */
-?>
-<?php
-
-if ('main-sidebar') : ?>
+if (is_active_sidebar('main-sidebar')) : ?>
 	<aside id="secondary" class="widget-area">
 		<?php get_search_form(); ?>
 
-		<div class="blog-cards">
+		<div class="blog-cards pt-30">
 			<?php
 			$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 
@@ -35,7 +32,7 @@ if ('main-sidebar') : ?>
 								<img src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'medium'); ?>" alt="<?php the_title(); ?>" class="rounded" />
 							</a>
 						</div>
-						<h4 class="overflow-txt w-100 m-0"><?php the_title(); ?></h4>
+						<h5 class="overflow-txt w-100 m-0"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h5>
 					</div>
 			<?php
 				endwhile;

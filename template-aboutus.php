@@ -26,7 +26,7 @@
 <section class="about bg-gray pb-50">
     <div class="container">
         <!-- heading -->
-        <div>
+        <div class="section-header">
             <div class="blog-header d-flex">
                 <h2>About Us</h2>
             </div>
@@ -130,7 +130,6 @@
     </div>
 </section>
 <!-- certification and Compliances-->
-<?php get_template_part('certificate-slider'); ?>
 
 <section class="container pb-50">
     <div class="blog-header pb-50">

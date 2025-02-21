@@ -4,7 +4,7 @@
             <h2 class="lets-talk">Let's Talk</h2>
             <div class="contact-form d-flex">
                 <span class="lets-talk-image bg-no-repeat"></span>
-                <?php echo do_shortcode('[contact-form-7 id="cabf764" title="Contact Foreheads"]');
+                <?php echo do_shortcode('[contact-form-7 id="9b66d15" title="Contact Foreheads"]');
                 ?>
                 <?php // get_template_part('template-parts/contact-form'); 
                 ?>
@@ -18,7 +18,7 @@
             <div class="left-footer">
                 <!-- navbar-->
                 <nav class="d-flex foot-nav">
-                    <a class="navbar-brand" href="<?php echo home_url('/'); ?>">
+                    <a class="footer-logo" href="<?php echo home_url('/'); ?>">
                         <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/foreheads-logo.png" alt="Logo">
                     </a>
                     <ul class="d-flex footer-menu">

@@ -95,7 +95,8 @@ function mytheme_register_sidebar()
 }
 add_action('widgets_init', 'mytheme_register_sidebar');
 
-function theme_register_sidebar() {
+function theme_register_sidebar()
+{
     register_sidebar(array(
         'name'          => __('Main Sidebar', 'your-theme'),
         'id'            => 'main-sidebar',

@@ -12,3 +12,15 @@
         </div>
     </form>
 </section>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        document.getElementById("searchform").addEventListener("submit", function(event) {
+            let searchInput = document.getElementById("s").value.trim();
+            if (searchInput === "") {
+                event.preventDefault();
+                window.location.href = "<?php echo site_url('/blog'); ?>";
+            }
+        });
+    });
+</script>

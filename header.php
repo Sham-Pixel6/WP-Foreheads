@@ -18,7 +18,7 @@
 	<div class="header-nav">
 		<header class="container">
 			<nav class="navbar d-flex" id="navbar">
-				<a class="navbar-brand" href="<?php echo home_url('/'); ?>">
+				<a class="navbar-brand header-logo" href="<?php echo home_url('/'); ?>">
 					<img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/foreheads-logo.png" alt="Logo">
 				</a>
 				<?php

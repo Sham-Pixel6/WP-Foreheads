@@ -114,7 +114,7 @@ class Benefits_Widget extends WP_Widget
     {
         echo $args['before_widget'];
 ?>
-        <section class="container ptb-50">
+        <section class="container pb-50">
             <div class="section-header">
                 <div class="blog-header d-flex">
                     <h2><?php echo esc_html($instance['title']); ?></h2>

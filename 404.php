@@ -8,7 +8,8 @@
  * @package P6Foreheads
  */
 ?>
-<?php get_header(); ?>
+<?php
+get_header(); ?>
 
 
 
@@ -18,10 +19,6 @@
 	</header>
 
 	<div class="error-content">
-		<span class="error-banner img"></span>
+		<span class="error-banner"></span>
 	</div>
 </section>
-
-</body>
-
-</html>
